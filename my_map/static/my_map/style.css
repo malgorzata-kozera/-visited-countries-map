@@ -1,0 +1,37 @@
+
+.navbar-brand{
+
+font-family: 'Satisfy', cursive;
+}
+
+h1,h2,h3{
+
+font-family: 'Indie Flower', cursive;
+
+}
+
+
+.scrollable-menu {
+    width: 350px;
+    height: auto;
+    max-height: 200px;
+    overflow-x: hidden;
+}
+
+li {
+    list-style-type: none;
+
+    }
+
+.scrollable-menu::-webkit-scrollbar-thumb {
+    border-radius: 3px;
+    background-color: lightgray;
+    -webkit-box-shadow: 0 0 1px rgba(255,255,255,.75);
+}
+
+.scrollable-menu::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 4px;
+}
+
+

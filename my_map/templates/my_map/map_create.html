@@ -1,0 +1,109 @@
+
+<!DOCTYPE html>
+{% extends 'my_map/base.html'%}
+
+{% block content %}
+
+<div align="center" class="container mb-3">
+    <br>
+    <h1>Select countries you visited </h1>
+<!--Form start-->
+
+    <form method="POST">
+    {% csrf_token %}
+
+        <div class="row col-10 offset-1 mb-2">
+
+<!--dropdown Asia-->
+            <div class="dropdown p-1">
+                <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Asia
+                </button>
+                    <div  class="dropdown-menu scrollable-menu">{{form.Asia}}</div>
+            </div>
+
+<!--dropdown Europe-->
+
+            <div class="dropdown p-1">
+
+                <button class="btn btn-secondary dropdown-toggle" type="button"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Europe
+                </button>
+                    <div  class="dropdown-menu scrollable-menu">{{form.Europe}}</div>
+            </div>
+
+<!--dropdown Ocenia-->
+
+            <div class="dropdown p-1">
+
+                <button class="btn btn-secondary dropdown-toggle" type="button"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Oceania
+                </button>
+                    <div  class="dropdown-menu scrollable-menu">{{form.Oceania}}</div>
+            </div>
+
+<!--dropdown Africa-->
+
+            <div class="dropdown p-1">
+
+                <button class="btn btn-secondary dropdown-toggle" type="button"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Africa
+                </button>
+                    <div  class="dropdown-menu scrollable-menu">{{form.Africa}}</div>
+            </div>
+
+
+<!--dropdown America South-->
+
+            <div class="dropdown p-1">
+
+                <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                South America
+                </button>
+                    <div  class="dropdown-menu scrollable-menu">{{form.South_America}}</div>
+            </div>
+
+
+<!--dropdown America North-->
+
+            <div class="dropdown p-1">
+
+                <button class="btn btn-secondary dropdown-toggle" type="button"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                North America
+                </button>
+                    <div  class="dropdown-menu scrollable-menu">{{form.North_America}}</div>
+            </div>
+
+
+<!--dropdown Antarctica-->
+
+            <div class="dropdown p-1">
+
+                <button class="btn btn-secondary dropdown-toggle" type="button"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Antarctica
+                </button>
+                    <div  class="dropdown-menu scrollable-menu">{{form.Antarctica}}</div>
+            </div>
+
+        </div>
+<!--Form Button-->
+
+        <button type="submit" class="btn btn-secondary btn-lg ">Submit & Show Map </button>
+
+    </form>
+
+<!--Form End-->
+
+<!--Interactive map -->
+
+    <div style="width:800px; height:auto;" class="mapa col-9 mt-3">
+        <div class="embed-responsive embed-responsive-21by9">
+            <iframe style="width:900px; height:900px;" class="embed-responsive-item" src="{% url 'static_map' %}" allowfullscreen></iframe>
+
+        </div>
+    </div>
+
+</div>
+
+{% endblock content %}
+

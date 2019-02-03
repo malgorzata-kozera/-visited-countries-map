@@ -1,0 +1,28 @@
+
+<!DOCTYPE html>
+{% extends 'my_map/base.html'%}
+{% load social_share %}
+
+{% block content %}
+
+<div align="center" class="content">
+     <br>
+    <h1> New map has been created </h1>
+    <br>
+    <a class="btn btn-outline-primary  btn-lg" href="{% url 'map_create' %}" role="button">Create New Map</a>
+    <br>
+
+<!--Interactive map -->
+
+<div style="width:800px; height:auto;" class="mapa col-9 mt-3">
+    <div class="embed-responsive embed-responsive-21by9">
+        <iframe style="width:900px; height:900px;" class="embed-responsive-item" src="{% url 'dynamic_map' %}" allowfullscreen></iframe>
+
+    </div>
+</div>
+
+<br>
+    <div align="center" class="social">{% post_to_facebook object_or_url "Post to Facebook!" %}</div>
+
+</div>
+{% endblock content %}
