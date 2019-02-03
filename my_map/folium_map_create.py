@@ -33,7 +33,7 @@ def map_create_function(lista):
     feature_group = folium.FeatureGroup(name="My map")
 
     feature_group.add_child(folium.GeoJson(
-        data=open(os.path.join(BASE_DIR, f"my_map\static\my_map\world.json"), "r", encoding="utf-8-sig").read(),
+        data=open(os.path.join(BASE_DIR, f"my_map/static/my_map/world.json"), "r", encoding="utf-8-sig").read(),
         style_function=lambda map_data: {
             'fillColor': get_color(map_data),
             'fillOpacity': 0.5,
