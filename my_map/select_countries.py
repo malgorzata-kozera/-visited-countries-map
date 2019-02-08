@@ -20,7 +20,7 @@ def select_options(continent):
     options_antarctica = []
     options_africa = []
 
-    with open(os.path.join(BASE_DIR, 'my_map/static/my_map/coutry_by_continent.json'), mode='r') as file:
+    with open(os.path.join(BASE_DIR, "my_map","static","my_map","coutry_by_continent.json"), mode='r') as file:
         content = json.load(file)
         for x in content:
             if x['continent'] == 'Europe':
