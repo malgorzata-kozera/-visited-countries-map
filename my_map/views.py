@@ -6,11 +6,21 @@ from .folium_map_create import map_create_function
 def about(request):
     return render(request, "my_map/about.html")
 
+
 def home_page(request):
     return render(request, "my_map/home.html")
 
+
 def static_map(request):
     return render(request, "my_map/static_map.html")
+
+
+def created_map(request):
+    return render(request, "my_map/created_map.html")
+
+
+def dynamic_map(request):
+    return render(request, "my_map/my_map.html")
 
 
 def map_create(request):
@@ -40,12 +50,5 @@ def map_create(request):
         form = CountriesChoice
     return render(request, 'my_map/map_create.html', {'form': form})
 
-
-def created_map(request):
-    return render(request, "my_map/created_map.html")
-
-
-def dynamic_map(request):
-    return render(request, "my_map/my_map.html")
 
 

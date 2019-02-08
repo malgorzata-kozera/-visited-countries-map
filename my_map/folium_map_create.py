@@ -44,4 +44,4 @@ def map_create_function(lista):
 
     mapa.add_child(feature_group)
 
-    return mapa.save(os.path.join(BASE_DIR, r"my_map/templates/my_map/my_map.html"))
+    return mapa.save(os.path.join(BASE_DIR, f"my_map/templates/my_map/my_map.html"))
