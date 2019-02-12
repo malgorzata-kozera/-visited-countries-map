@@ -6,6 +6,7 @@ from django.http import HttpResponse
 
 lista=[]
 
+
 def about(request):
     return render(request, "my_map/about.html")
 
@@ -56,9 +57,10 @@ def created_map(request):
 def dynamic_map(request):
 
     global lista
+
     http_maps = map_create_function(lista)
 
     lista=[]
-    
+
     return HttpResponse(http_maps)
 
