@@ -6,6 +6,7 @@ from django.http import HttpResponse
 
 
 lista=[]
+http_maps=""
 
 def about(request):
     return render(request, "my_map/about.html")
@@ -22,9 +23,9 @@ def static_map(request):
 
 def map_create(request):
 
-    # global lista
-    # lista.clear()
-
+    global lista
+    global http_maps
+    lista.clear()
 
 
     form = CountriesChoice
@@ -43,7 +44,7 @@ def map_create(request):
 
             print("Lista - views: ", lista)
 
-            # http_maps = map_create_function(lista)
+            http_maps = map_create_function(lista)
 
 
 
@@ -62,11 +63,8 @@ def created_map(request):
 
 
 def dynamic_map(request):
-    global lista
 
-    http_maps = map_create_function(lista)
-
-    lista=[]
+    global http_maps
 
     return HttpResponse(http_maps)
 
