@@ -6,12 +6,6 @@ from django.http import HttpResponse
 
 lista=[]
 
-def clean_list():
-    global lista
-    lista=[]
-    return lista
-
-
 def about(request):
     return render(request, "my_map/about.html")
 
@@ -62,7 +56,7 @@ def created_map(request):
 def dynamic_map(request):
 
     http_maps = map_create_function(lista)
-    clean_list()
-
+    global lista
+    lista=[]
     return HttpResponse(http_maps)
 
