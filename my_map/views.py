@@ -3,9 +3,10 @@ from django.shortcuts import render, redirect
 from .forms import CountriesChoice
 from .folium_map_create import map_create_function
 from django.http import HttpResponse
+from .models import MapDatabase
 
 
-http_maps=""
+# http_maps=""
 
 def about(request):
     return render(request, "my_map/about.html")
@@ -21,20 +22,19 @@ def static_map(request):
 
 def dynamic_map(request):
 
-    global http_maps
+    # global http_maps
+    httpstring = MapDatabase.objects.get(id=1)
 
-    return HttpResponse(http_maps)
+    # print(httpstring)
 
-# def created_map(request):
-
-    # return render(request, "my_map/created_map.html")
+    return HttpResponse(httpstring)
 
 
 def map_create(request):
 
     lista=[]
     print(lista)
-    global http_maps
+    # global http_maps
 
     form = CountriesChoice
     if request.method == 'POST':
@@ -54,9 +54,12 @@ def map_create(request):
 
             http_maps = map_create_function(lista)
 
+            object_klasy = MapDatabase(id=1, html_string=http_maps)
+            # object_klasy.value=http_maps
+            object_klasy.save()
+
             return render(request, "my_map/created_map.html")
 
-            # return redirect('created_map')
     else:
 
         form = CountriesChoice
