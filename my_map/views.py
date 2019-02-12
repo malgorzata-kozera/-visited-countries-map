@@ -23,6 +23,7 @@ def map_create(request):
 
     global lista
     global http_maps
+    lista.clear()
 
 
     form = CountriesChoice
@@ -58,12 +59,8 @@ def created_map(request):
 
 def dynamic_map(request):
 
-    global lista
-
     # http_maps = map_create_function(lista)
 
-    lista.clear()
-    
     # lista=[]
 
     return HttpResponse(http_maps)
