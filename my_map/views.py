@@ -23,6 +23,8 @@ def map_create(request):
 
     global lista
 
+    lista.clear()
+
     form = CountriesChoice
     if request.method == 'POST':
         form = CountriesChoice(request.POST)
@@ -56,11 +58,11 @@ def created_map(request):
 
 def dynamic_map(request):
 
-    global lista
+    # global lista
 
     http_maps = map_create_function(lista)
 
-    lista=[]
+    # lista=[]
 
     return HttpResponse(http_maps)
 
