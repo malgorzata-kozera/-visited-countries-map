@@ -51,6 +51,11 @@ def map_create(request):
     return render(request, 'my_map/map_create.html', {'form': form})
 
 
+
+def created_map(request):
+
+    return render(request, "my_map/created_map.html")
+
 def dynamic_map(request):
 
     http_maps = map_create_function(lista)
@@ -58,8 +63,3 @@ def dynamic_map(request):
     # global http_maps
 
     return HttpResponse(http_maps)
-
-
-def created_map(request):
-
-    return render(request, "my_map/created_map.html")
