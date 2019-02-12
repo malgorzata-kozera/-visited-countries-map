@@ -46,8 +46,6 @@ def map_create_function(lista):
         }))
 
     mapa.add_child(feature_group)
-    global lista
-    lista=[]
 
     return mapa.get_root().render()
 
