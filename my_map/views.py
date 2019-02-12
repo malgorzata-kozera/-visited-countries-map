@@ -59,7 +59,7 @@ def created_map(request):
 def dynamic_map(request):
 
     http_maps = map_create_function(lista)
-    global lista
-    lista=[]
+    # global lista
+    # lista=[]
 
     return HttpResponse(http_maps)
