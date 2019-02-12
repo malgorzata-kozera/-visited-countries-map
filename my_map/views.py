@@ -4,7 +4,7 @@ from .forms import CountriesChoice
 from .folium_map_create import map_create_function
 from django.http import HttpResponse
 
-
+# http_maps=""
 lista=[]
 
 def about(request):
