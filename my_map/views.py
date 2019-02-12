@@ -4,6 +4,7 @@ from .forms import CountriesChoice
 from .folium_map_create import map_create_function
 from django.http import HttpResponse
 
+
 # lista=[]
 # print(lista)
 http_maps=""
@@ -18,6 +19,12 @@ def home_page(request):
 
 def static_map(request):
     return render(request, "my_map/static_map.html")
+
+
+def dynamic_map(request):
+    global http_maps
+
+    return HttpResponse(http_maps)
 
 
 def map_create(request):
@@ -45,6 +52,7 @@ def map_create(request):
             print("Lista - views: ", lista)
 
             http_maps = map_create_function(lista)
+            dynamic_map(request)
 
 
             return redirect('created_map')
@@ -57,12 +65,13 @@ def map_create(request):
 
 def created_map(request):
 
+
     return render(request, "my_map/created_map.html")
 
 
-def dynamic_map(request):
-
-    global http_maps
-
-    return HttpResponse(http_maps)
-
+# def dynamic_map(request):
+#
+#     global http_maps
+#
+#     return HttpResponse(http_maps)
+#
