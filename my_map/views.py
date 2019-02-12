@@ -23,8 +23,6 @@ def map_create(request):
 
     global lista
 
-    lista=[]
-
     form = CountriesChoice
     if request.method == 'POST':
         form = CountriesChoice(request.POST)
@@ -40,8 +38,6 @@ def map_create(request):
             lista = europe+africa+oceania+antarctica+north_america+south_america+asia
 
             print("Lista - views: ", lista)
-
-            # global http_maps
 
             # http_maps = map_create_function(lista)
 

@@ -20,8 +20,6 @@ Lastly basing on the form's values and json's values it colors the map and retur
 
 def map_create_function(lista):
 
-    global mapa
-
     def get_color(map_data):
         condition = False
         for value in lista:
@@ -48,6 +46,8 @@ def map_create_function(lista):
         }))
 
     mapa.add_child(feature_group)
+    global lista
+    lista=[]
 
     return mapa.get_root().render()
 
