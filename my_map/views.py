@@ -6,6 +6,7 @@ from django.http import HttpResponse
 
 
 lista=[]
+print(lista)
 http_maps=""
 
 def about(request):
@@ -20,13 +21,24 @@ def static_map(request):
     return render(request, "my_map/static_map.html")
 
 
+def dynamic_map(request):
+
+    global http_maps
+
+    return HttpResponse(http_maps)
+
+def created_map(request):
+
+
+    return render(request, "my_map/created_map.html")
+
 
 def map_create(request):
 
     global lista
+    print(lista)
     global http_maps
     lista.clear()
-
 
     form = CountriesChoice
     if request.method == 'POST':
@@ -55,16 +67,4 @@ def map_create(request):
     return render(request, 'my_map/map_create.html', {'form': form})
 
 
-
-def created_map(request):
-
-
-    return render(request, "my_map/created_map.html")
-
-
-def dynamic_map(request):
-
-    global http_maps
-
-    return HttpResponse(http_maps)
 
