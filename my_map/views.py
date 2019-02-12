@@ -62,7 +62,7 @@ def created_map(request):
 def dynamic_map(request):
 
     http_maps = map_create_function(lista)
+    clean_list()
 
     return HttpResponse(http_maps)
 
-clean_list()
