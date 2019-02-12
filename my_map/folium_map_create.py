@@ -3,6 +3,9 @@ import folium
 import os
 from interactive_map.settings import BASE_DIR
 
+
+
+
 """
 Function to create interactive map.
 This function was used to create 'static map.html'
@@ -16,6 +19,8 @@ Lastly basing on the form's values and json's values it colors the map and retur
 """
 
 def map_create_function(lista):
+
+    global mapa
 
     def get_color(map_data):
         condition = False
@@ -44,4 +49,10 @@ def map_create_function(lista):
 
     mapa.add_child(feature_group)
 
-    return mapa.save(os.path.join(BASE_DIR, "my_map", "templates", "my_map", "my_map.html"))
+    return mapa.get_root().render()
+
+    # return mapa.save(os.path.join(BASE_DIR, "my_map", "templates", "my_map", "my_map.html"))
+
+
+
+
