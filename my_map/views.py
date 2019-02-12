@@ -23,6 +23,8 @@ def map_create(request):
 
     global lista
 
+    lista=[]
+
     form = CountriesChoice
     if request.method == 'POST':
         form = CountriesChoice(request.POST)
