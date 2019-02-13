@@ -26,6 +26,20 @@ django_social_share:
 
 I used it for making a template tags for 'Share this on Facebook'.
 
+
+## Start-up:
+
+To run this project, install it locally using for example cmd:
+
+```
+pip install foilium
+pip install django_social_share
+
+```
+## How does it look like
+
+You can see this website in action [here](https://visited-countries-map.herokuapp.com)
+
 ![ss1](https://user-images.githubusercontent.com/47001087/52181736-b34ab800-27f5-11e9-9f58-a6a608152ccb.png)
 
 
