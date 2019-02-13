@@ -1,6 +1,11 @@
 from django import forms
 from .select_countries import select_options
 
+'''
+CountriesChoice class is using a select_options() function to create a form.
+It creates a multiple choice fields with checkbox inside.
+As an options it takes a values (names of the countries) from the json file sorted by continent.
+'''
 
 class CountriesChoice(forms.Form):
 

@@ -17,12 +17,19 @@ def home_page(request):
 def static_map(request):
     return render(request, "my_map/static_map.html")
 
+# dynamic_map() takes a database object (map's html in string format) and renders it in a normal html file
+# returns html file with created map
+
 
 def dynamic_map(request):
 
     httpstring = MapDatabase.objects.get(id=1)
 
     return HttpResponse(httpstring)
+
+# map_create () takes a chosen options from the form. If form is valid it creates a list with all chosen countries
+# then it uses a map_create_function() with that list as an argument to create a map
+# next it saves created map as an object in a database.
 
 
 def map_create(request):
@@ -57,4 +64,3 @@ def map_create(request):
 
         form = CountriesChoice
     return render(request, 'my_map/map_create.html', {'form': form})
-

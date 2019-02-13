@@ -1,6 +1,7 @@
 
-.navbar-brand{
+/*changing navbar font*/
 
+.navbar-brand{
 font-family: 'Satisfy', cursive;
 }
 
@@ -10,7 +11,6 @@ font-family: 'Indie Flower', cursive;
 
 }
 
-
 .scrollable-menu {
     width: 350px;
     height: auto;
@@ -18,10 +18,14 @@ font-family: 'Indie Flower', cursive;
     overflow-x: hidden;
 }
 
+/*getting rid of dots from the list inside drop-down menu*/
+
 li {
     list-style-type: none;
 
     }
+
+/*settings for the box and scrollbar in the drop-down menu */
 
 .scrollable-menu::-webkit-scrollbar-thumb {
     border-radius: 3px;

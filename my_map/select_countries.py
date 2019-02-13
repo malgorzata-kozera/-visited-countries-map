@@ -5,7 +5,8 @@ import json
 """
 Function to create a form 'CountriesChoice' values.
 It is using a json file('country_by_continent.json').
-
+It sorts a countries' names by continent and saves it as an lists for all continents.
+Function returns options for all continent.
 """
 
 

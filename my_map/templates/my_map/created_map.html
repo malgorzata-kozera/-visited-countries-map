@@ -12,7 +12,7 @@
     <a class="btn btn-outline-primary  btn-lg" href="{% url 'map_create' %}" role="button">Create New Map</a>
     <br>
 
-<!--Interactive map -->
+<!--Interactive map created by dynamic_map function -->
 
 <div style="width:800px; height:auto;" class="mapa col-9 mt-3">
     <div class="embed-responsive embed-responsive-21by9">
@@ -21,6 +21,7 @@
     </div>
 </div>
 
+<!--Link to facebook where user can share the map -->
 <br>
     <div align="center" class="social">{% post_to_facebook object_or_url "Post to Facebook!" %}</div>
 
