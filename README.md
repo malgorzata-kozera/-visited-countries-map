@@ -2,7 +2,7 @@
 
 Here you can create your personalized travel map -with all your visited countries around the world.
 
-I created this web app as a hobby project.I was traveling around the world for last 2 years, I always wanted to have a tool that allows me to check how far I have been and how many pieces of the world I visited already.I know there is a lot of that kind of websites on the internet, but i wanted to make my own, just like I wanted !
+I created this web app as a hobby project. I was traveling around the world for last 2 years, I always wanted to have a tool that allows me to check how far I have been and how many pieces of the world I visited already. I know there is a lot of that kind of websites on the internet, but i wanted to make my own, just like I wanted !
 
 ## Technology Stack:
 -	Python/Django
