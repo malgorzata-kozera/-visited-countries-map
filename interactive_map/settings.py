@@ -22,7 +22,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 
-SECRET_KEY = os.environ.get('SECRET_KEY')
+SECRET_KEY = '^d4o(hos+xfhf34e!7v8er5mz0)bbzm#5tf=y0a#z%xsjb1(jm'
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -84,8 +84,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'database_map',
-        'USER': os.environ.get('DB_USER'),
-        'PASSWORD': os.environ.get('DB_PASS'),
+        'USER': 'postgres_user',
+        'PASSWORD':'test123',
         'HOST': '127.0.0.1',
         'PORT': '5432',
     }
