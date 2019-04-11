@@ -3,42 +3,39 @@ import os
 from interactive_map.settings import BASE_DIR
 
 
-"""
-map_create_function()
-Function to create interactive map.
-This function was used to create 'static map.html'
-It is a plain map, which is display on the 'map_create.html'
+def map_create_function(countries_list):
+    """
+    map_create_function()
+    Function to create interactive map.
+    This function was used to create 'static map.html'
+    It is a plain map, which is display on the 'map_create.html'
 
-Then it is called whenever the user fills up the form correctly
-It takes the list with a values of the form as an argument.
-Then it is using geoJson to read 'world.json' file. It takes a coordinates for each country.
-Lastly basing on the form's values and json's values it colors the map and return that map
-(map's html in a string format).
-
-"""
-# get_color () - function which returns color of the map.
-# if name of chosen country is equal to the country name from json file it returns red colour
-# for that country, if not it returns blue
-
-
-def map_create_function(lista):
+    Then it is called whenever the user fills up the form correctly
+    It takes the list with a values of the form as an argument.
+    Then it is using geoJson to read 'world.json' file. It takes a coordinates for each country.
+    Lastly basing on the form's values and json's values it colors the map and return that map
+    (map's html in a string format)."""
 
     def get_color(map_data):
+        """
+    get_color () - function which returns color of the map.
+    if name of chosen country is equal to the country name from json file it returns red colour
+    for that country, if not it returns blue"""
 
         condition = False
-        for value in lista:
+        for value in countries_list:
             if value == map_data['properties']['NAME']:
                 condition = True
         if condition == False:
             return 'blue'
         else:
-            for z in lista:
-                if z == map_data['properties']['NAME']:
+            for item in countries_list:
+                if item == map_data['properties']['NAME']:
                     return 'red'
 
     # creating a base map
 
-    mapa = folium.Map(location=None, tiles='Mapbox Bright', no_wrap=True, width=800, height=500)
+    my_map = folium.Map(location=None, tiles='Mapbox Bright', no_wrap=True, width=800, height=500)
 
     # creating and adding a features to the map
 
@@ -54,7 +51,7 @@ def map_create_function(lista):
             'weight': 1
         }))
 
-    mapa.add_child(feature_group)
+    my_map.add_child(feature_group)
 
-    return mapa.get_root().render()
+    return my_map.get_root().render()
 

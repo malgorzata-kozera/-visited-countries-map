@@ -2,17 +2,14 @@ from interactive_map.settings import BASE_DIR
 import os
 import json
 
-"""
-Function to create a form 'CountriesChoice' values.
-It is using a json file('country_by_continent.json').
-It sorts a countries' names by continent and saves it as an lists for all continents.
-Function returns options for all continent.
-"""
-
-
 
 def select_options(continent):
-
+    """
+    Function to create a form 'CountriesChoice' values.
+    It is using a json file('country_by_continent.json').
+    It sorts a countries' names by continent and saves it as an lists for all continents.
+    Function returns options for all continent.
+    """
     options_europe = []
     options_asia = []
     options_north_america = []

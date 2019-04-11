@@ -1,9 +1,11 @@
 
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from .forms import CountriesChoice
 from .folium_map_create import map_create_function
 from django.http import HttpResponse
 from .models import MapDatabase
+from django.views.decorators.http import require_POST
+from django.http import Http404
 
 
 def about(request):
@@ -17,25 +19,21 @@ def home_page(request):
 def static_map(request):
     return render(request, "my_map/static_map.html")
 
-# dynamic_map() takes a database object (map's html in string format) and renders it in a normal html file
-# returns html file with created map
-
 
 def dynamic_map(request):
-
+    """dynamic_map() takes a database object (map's html in string format) and renders it in a normal html file
+    returns html file with created map """
     httpstring = MapDatabase.objects.get(id=1)
 
     return HttpResponse(httpstring)
 
-# map_create () takes a chosen options from the form. If form is valid it creates a list with all chosen countries
-# then it uses a map_create_function() with that list as an argument to create a map
-# next it saves created map as an object in a database.
-
 
 def map_create(request):
+    """ map_create () takes a chosen options from the form. If form is valid it creates a list with all chosen countries
+    then it uses a map_create_function() with that list as an argument to create a map
+    next it saves created map as an object in a database."""
 
-    lista = []
-    print(lista)
+    countries_list = []
 
     form = CountriesChoice
     if request.method == 'POST':
@@ -49,18 +47,22 @@ def map_create(request):
             north_america = form.cleaned_data.get("North_America")
             south_america = form.cleaned_data.get("South_America")
 
-            lista = europe+africa+oceania+antarctica+north_america+south_america+asia
+            countries_list = europe+africa+oceania+antarctica+north_america+south_america+asia
 
-            print("Lista - views: ", lista)
-
-            maps_as_string = map_create_function(lista)
+            maps_as_string = map_create_function(countries_list)
 
             my_map_object = MapDatabase(id=1, html_string=maps_as_string)
             my_map_object.save()
 
-            return render(request, "my_map/created_map.html")
+            return redirect('created_map')
 
     else:
 
         form = CountriesChoice
     return render(request, 'my_map/map_create.html', {'form': form})
+
+
+def created_map(request):
+    return render(request, "my_map/created_map.html")
+
+

@@ -7,6 +7,7 @@ urlpatterns = [
     path('about/', views.about, name='about'),
     path('interactive_map/', views.map_create, name='map_create'),
     path('static_map/', views.static_map, name='static_map'),
+    path('created_map/', views.created_map, name='created_map'),
     path('my_dynamic_map/', views.dynamic_map, name='dynamic_map'),
 
 ]
