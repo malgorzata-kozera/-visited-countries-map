@@ -4,7 +4,8 @@ from interactive_map.settings import BASE_DIR
 
 
 def get_color(map_data, countries_list):
-    """get_color () - function which returns color of the map.
+    """
+    function which returns color of the map.
     if name of chosen country is equal to the country name from json file it returns red colour
     for that country, if not it returns blue"""
 
@@ -22,7 +23,6 @@ def get_color(map_data, countries_list):
 
 def map_create_function(countries_list):
     """
-    map_create_function()
     Function to create interactive map.
     This function was used to create 'static map.html'
     It is a plain map, which is display on the 'map_create.html'
