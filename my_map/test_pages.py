@@ -34,10 +34,3 @@ class PagesTests(TestCase):
         response = self.client.get(url)
 
         self.assertEqual(response.status_code, 200)
-
-    def test_dynamic_map_page(self):
-        """Test that the dynamic_map page page works"""
-        url = reverse('dynamic_map')
-        response = self.client.get(url)
-
-        self.assertEqual(response.status_code, 200)
