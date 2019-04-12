@@ -7,4 +7,4 @@ class MapDatabase(models.Model):
     html_string = models.TextField()
 
     def __str__(self):
-        return self.html_string
+        return 'map_string'

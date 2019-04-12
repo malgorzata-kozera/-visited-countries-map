@@ -24,8 +24,9 @@ def dynamic_map(request):
     """dynamic_map() takes a database object (map's html in string format) and renders it in a normal html file
     returns html file with created map """
     httpstring = MapDatabase.objects.get(id=1)
+    vaule_of_httpstring = httpstring.html_string
 
-    return HttpResponse(httpstring)
+    return HttpResponse(vaule_of_httpstring)
 
 
 def map_create(request):
@@ -33,9 +34,6 @@ def map_create(request):
     then it uses a map_create_function() with that list as an argument to create a map
     next it saves created map as an object in a database."""
 
-    countries_list = []
-
-    form = CountriesChoice
     if request.method == 'POST':
         form = CountriesChoice(request.POST)
         if form.is_valid():
@@ -64,5 +62,3 @@ def map_create(request):
 
 def created_map(request):
     return render(request, "my_map/created_map.html")
-
-
