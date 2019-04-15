@@ -1,5 +1,6 @@
 from django.test import TestCase, Client
 from django.urls import reverse
+from my_map.models import MapDatabase
 
 
 class PagesTests(TestCase):
@@ -33,4 +34,12 @@ class PagesTests(TestCase):
         url = reverse('created_map')
         response = self.client.get(url)
 
+        self.assertEqual(response.status_code, 200)
+
+    def test_dynamic_map_page(self):
+        """Test that the dynamic_map page works"""
+        http_string = MapDatabase(html_string="some string")
+        http_string.save()
+        url = reverse('dynamic_map')
+        response = self.client.get(url)
         self.assertEqual(response.status_code, 200)
