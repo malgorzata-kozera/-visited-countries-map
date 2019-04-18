@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/2.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.1/ref/settings/
 """
-import django_heroku
+# import django_heroku
 import os
 
 
@@ -28,14 +28,13 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['https://www.heroku.com',".herokuapp.com"]
+ALLOWED_HOSTS = ['https://www.heroku.com','.herokuapp.com','127.0.0.1']
 
 
 # Application definition
 
 INSTALLED_APPS = [
     'my_map.apps.MyMapConfig',
-    'crispy_forms',
     'django_social_share',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -140,4 +139,4 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-django_heroku.settings(locals())
+# django_heroku.settings(locals())

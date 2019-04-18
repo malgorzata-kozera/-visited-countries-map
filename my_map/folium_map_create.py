@@ -1,6 +1,8 @@
 import folium
 import os
+import json
 from interactive_map.settings import BASE_DIR
+
 
 
 def get_color(map_data, countries_list):
@@ -8,18 +10,40 @@ def get_color(map_data, countries_list):
     function which returns color of the map.
     if name of chosen country is equal to the country name from json file it returns red colour
     for that country, if not it returns blue"""
+    # print(map_data['properties']['NAME'])
+    # for x in country:
+    #     print(f'lista z jsona {x}')
+    # print(f'lista panstw{countries_list}')
 
-    condition = False
     for value in countries_list:
-        if value == map_data['properties']['NAME']:
-            condition = True
-    if condition == False:
-        return 'blue'
+        if value in map_data['properties']['NAME']:
+            for item in countries_list:
+                if item in map_data['properties']['NAME']:
+                    return 'red'
     else:
-        for item in countries_list:
-            if item == map_data['properties']['NAME']:
-                return 'red'
+        return 'blue'
 
+#
+# def style_function2(countries_list):
+#
+#     print(countries_list)
+#
+#     content = folium.GeoJson(
+#         data=open(os.path.join(BASE_DIR, "my_map", "static", "my_map", "world.json"), "r",
+#                   encoding="utf-8-sig").read())
+#     for x in content.data['features']:
+#         # print(x['properties']['NAME'])
+#
+#         return {'fillColor': get_color(x['properties']['NAME'], countries_list),
+#         'fillOpacity': 0.5,
+#         'color': 'black',
+#         'line_opacity': 0.5,
+#         'weight': 1}
+
+def style_function1(map_data, countries_list):
+
+    return lambda map_data: dict(fillColor=get_color(map_data, countries_list), weight=1, fillOpacity=0.5,
+                                          color='black', line_opacity=0.5)
 
 def map_create_function(countries_list):
     """
@@ -39,17 +63,32 @@ def map_create_function(countries_list):
 
     feature_group = folium.FeatureGroup(name="My map")
 
-    feature_group.add_child(folium.GeoJson(
-        data=open(os.path.join(BASE_DIR, "my_map", "static", "my_map", "world.json"), "r", encoding="utf-8-sig").read(),
-        style_function=lambda map_data: {
-            'fillColor': get_color(map_data, countries_list),
-            'fillOpacity': 0.5,
-            'color': 'black',
-            'line_opacity': 0.5,
-            'weight': 1
-        }))
+    lista = []
 
-    my_map.add_child(feature_group)
+    with open(os.path.join(BASE_DIR, "my_map", "static", "my_map", "world.json"), "r", encoding="utf-8-sig") as f:
+        map_data = json.load(f)
+
+    # for feature in map_data['features']:
+    #     country = feature['properties']['NAME']
+    #     lista.append(country)
+    #     # print(lista)
+
+    gj = folium.GeoJson(map_data, style_function=style_function1(map_data,countries_list))
+    gj.add_to(my_map)
+    #
+    # feature_group.add_child(folium.GeoJson()
+    #
+    # # feature_group.add_child(folium.GeoJson(
+    # #     data=open(os.path.join(BASE_DIR, "my_map", "static", "my_map", "world.json"), "r", encoding="utf-8-sig").read(),
+    # #     style_function=lambda map_data: {
+    # #         'fillColor': get_color(map_data, countries_list),
+    # #         'fillOpacity': 0.5,
+    # #         'color': 'black',
+    # #         'line_opacity': 0.5,
+    # #         'weight': 1
+    # #     }))
+    #
+    # my_map.add_child(feature_group)
 
     return my_map.get_root().render()
 

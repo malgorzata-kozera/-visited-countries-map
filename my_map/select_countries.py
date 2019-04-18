@@ -37,16 +37,23 @@ def select_options(continent):
                 options_north_america.append((x['country'], x['country']))
 
     if continent == 'Europe':
+        # print (options_europe)
         return options_europe
     elif continent == 'Asia':
+        # print (options_asia)
         return options_asia
     elif continent == 'Africa':
+        # print(options_africa)
         return options_africa
     elif continent == 'Antarctica':
+        # print(options_antarctica)
         return options_antarctica
     elif continent == 'Oceania':
+        # print(options_oceania)
         return options_oceania
     elif continent == 'South America':
+        # print(options_south_america)
         return options_south_america
     elif continent == 'North America':
+        # print(options_north_america)
         return options_north_america

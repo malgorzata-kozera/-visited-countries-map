@@ -46,7 +46,6 @@ def map_create(request):
             south_america = form.cleaned_data.get("South_America")
 
             countries_list = europe+africa+oceania+antarctica+north_america+south_america+asia
-
             maps_as_string = map_create_function(countries_list)
 
             my_map_object = MapDatabase(id=1, html_string=maps_as_string)
