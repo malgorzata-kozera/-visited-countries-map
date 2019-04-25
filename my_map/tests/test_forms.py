@@ -1,6 +1,7 @@
 from django.test import TestCase
 from my_map.forms import CountriesChoice
 
+
 class TestClass(TestCase):
 
     def test_form_empty(self):
@@ -11,6 +12,6 @@ class TestClass(TestCase):
 
     def test_form_notempty(self):
         """Test that data form is valid"""
-        form_data = {'Poland':'Poland'}
+        form_data = {'Poland': 'Poland'}
         form = CountriesChoice(data=form_data)
         self.assertTrue(form.is_valid())

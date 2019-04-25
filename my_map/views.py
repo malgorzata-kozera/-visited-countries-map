@@ -4,8 +4,6 @@ from .forms import CountriesChoice
 from .folium_map_create import map_create_function
 from django.http import HttpResponse
 from .models import MapDatabase
-from django.views.decorators.http import require_POST
-from django.http import Http404
 
 
 def about(request):

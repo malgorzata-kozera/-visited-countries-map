@@ -7,6 +7,7 @@ It creates a multiple choice fields with checkbox inside.
 As an options it takes a values (names of the countries) from the json file sorted by continent.
 '''
 
+
 class CountriesChoice(forms.Form):
 
     Europe = forms.MultipleChoiceField(required=False, widget=forms.CheckboxSelectMultiple(),
