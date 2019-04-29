@@ -78,7 +78,7 @@ WSGI_APPLICATION = 'interactive_map.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
-
+#
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -91,6 +91,21 @@ DATABASES = {
 }
 
 
+<<<<<<< HEAD
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'postgres',
+        'USER': os.environ.get('POSTGRES_USER'),
+        'PASSWORD': os.environ.get('POSTGRES_PASSWORD'),
+        'HOST': 'db',
+        'PORT': '5432',
+    }
+}
+
+
+=======
+>>>>>>> testmap
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.sqlite3',
@@ -139,4 +154,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+<<<<<<< HEAD
 git
+=======
+django_heroku.settings(locals())
+>>>>>>> testmap
