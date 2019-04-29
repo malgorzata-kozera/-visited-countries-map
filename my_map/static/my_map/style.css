@@ -1,5 +1,10 @@
 
-/*changing navbar font*/
+/*navbar font*/
+
+body{
+margin:0 0 0 0;
+
+}
 
 .navbar-brand{
 font-family: 'Satisfy', cursive;
@@ -9,6 +14,54 @@ h1,h2,h3{
 
 font-family: 'Indie Flower', cursive;
 
+}
+
+#intro {
+margin-top: 30px;
+margin-bottom:30px;
+text-align: center;
+
+}
+
+#about {
+margin-top: 30px;
+margin-bottom:30px;
+text-align: center;
+
+}
+
+#created-map {
+margin-top: 30px;
+margin-bottom:30px;
+text-align: center;
+
+}
+
+#map-create{
+margin-top: 30px;
+margin-bottom:30px;
+text-align: center;
+
+}
+
+.button{
+
+padding-top: 20px;
+padding-bottom:20px;
+}
+
+#social{
+align:center;
+padding:10px;
+}
+
+#about p{
+
+text-align:justify;
+
+}
+.section-title{
+text-align:center;
 }
 
 .scrollable-menu {
@@ -37,5 +90,3 @@ li {
     -webkit-appearance: none;
     width: 4px;
 }
-
-
