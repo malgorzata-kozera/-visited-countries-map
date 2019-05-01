@@ -1,0 +1,109 @@
+
+/*navbar font*/
+
+body{
+margin:0 0 0 0;
+
+}
+
+.html-mobile-background {
+    position: fixed;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("{% static 'my_map/images/photo2.jpg'%}") no-repeat;
+ center center fixed;
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover;
+ background-size: 100% 100%
+}
+
+
+.navbar-brand{
+font-family: 'Satisfy', cursive;
+}
+
+h1,h2,h3{
+
+font-family: 'Indie Flower', cursive;
+
+}
+
+#intro {
+margin-top: 30px;
+margin-bottom:30px;
+text-align: center;
+
+}
+
+#about {
+margin-top: 30px;
+margin-bottom:30px;
+text-align: center;
+
+}
+
+#created-map {
+margin-top: 30px;
+margin-bottom:30px;
+text-align: center;
+
+}
+
+#map-create{
+margin-top: 30px;
+margin-bottom:30px;
+text-align: center;
+
+}
+
+.button{
+
+padding-top: 20px;
+padding-bottom:20px;
+}
+
+#social{
+align:center;
+padding:10px;
+}
+
+#about p{
+
+text-align:justify;
+
+}
+.section-title{
+text-align:center;
+}
+
+.scrollable-menu {
+    width: 350px;
+    height: auto;
+    max-height: 200px;
+    overflow-x: hidden;
+}
+
+/*getting rid of dots from the list inside drop-down menu*/
+
+li {
+    list-style-type: none;
+
+    }
+
+/*settings for the box and scrollbar in the drop-down menu */
+
+.scrollable-menu::-webkit-scrollbar-thumb {
+    border-radius: 3px;
+    background-color: lightgray;
+    -webkit-box-shadow: 0 0 1px rgba(255,255,255,.75);
+}
+
+.scrollable-menu::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 4px;
+}
