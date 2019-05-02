@@ -3,14 +3,14 @@ import os
 from interactive_map.settings import BASE_DIR
 
 
-def get_color(map_data, countries_list):
+def get_color(country_data, countries_list):
     """
     function which returns color of the map.
     if name of chosen country is equal to the country name from json file it returns red colour
     for that country, if not it returns blue"""
 
     for x in countries_list:
-        if x in map_data['properties']['NAME']:
+        if x in country_data['properties']['NAME']:
             return 'red'
     else:
         return 'blue'
@@ -34,8 +34,8 @@ def map_create_function(countries_list):
 
     gj = folium.GeoJson(
         data=open(os.path.join(BASE_DIR, "my_map", "static", "my_map", "world.json"), "r", encoding="utf-8-sig").read(),
-        style_function=lambda map_data: {
-            'fillColor': get_color(map_data, countries_list),
+        style_function=lambda country_data: {
+            'fillColor': get_color(country_data, countries_list),
             'fillOpacity': 0.5,
             'color': 'black',
             'line_opacity': 0.5,
