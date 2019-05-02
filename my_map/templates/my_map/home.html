@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+{% extends 'my_map/base.html'%}
+{% load static%}
+
+{% block content %}
+<style>
+.html-mobile-background {
+    position: fixed;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("{% static 'my_map/images/photo2.jpg'%}") no-repeat;
+ center center fixed;
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover;
+ background-size: 100% 100%
+}
+</style>
+
+<body style="background-repeat: no-repeat; background-size:cover;" background="{% static 'my_map/images/photo2.jpg'%}">
+
+<div class="html-mobile-background">
+</div>
+
+<section id="intro">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+
+                <h2>Welcome to the Visited Countries Map! This app allows you to create your own map with all the places you've already been.</h2>
+                <h3>Let's start the journey...</h3>
+                <div class="button">
+                    <a class="btn btn-outline-dark  btn-lg" href="{% url 'map_create' %}" role="button">START</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+
+{% endblock content %}
